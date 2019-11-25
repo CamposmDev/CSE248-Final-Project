@@ -3,8 +3,10 @@ package com.campos;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.Scanner;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -12,17 +14,30 @@ import javax.net.ssl.HttpsURLConnection;
 public class MainActivity extends AppCompatActivity {
     private static final String QUERY = "https://api.data.gov/ed/collegescorecard/v1/schools.json?&school.degrees_awarded.predominant=2,3&fields=id,school.name,school.city,school.state,school.zip,school.school_url,latest.student.size&api_key=eymRFR4vdKAgPCK3JIw9Es42ytaEelgZf43H5TKc&_per_page=100&_zip=11784&_distance=10";
     private static final int VALID_RESPONSE_CODE = 200;
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        try {
-            methodA();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        methodB();
     }
+
+    public void methodB() {
+        Log.println(Log.ASSERT, TAG, "Creating new thread...");
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    methodA();
+                } catch (Exception e) {
+                    Log.println(Log.ASSERT, TAG, e.toString());
+                }
+            }
+        });
+        t.start();
+    }
+
 
     public void methodA() throws Exception {
         String inLine = "";
@@ -31,10 +46,10 @@ public class MainActivity extends AppCompatActivity {
         c.setRequestMethod("GET");
         c.connect();
         int responseCode = c.getResponseCode();
+        Log.println(Log.ASSERT, TAG, "Valid Response Code: " + responseCode);
         if (responseCode != VALID_RESPONSE_CODE) {
             throw new RuntimeException("HttpResponseCode: " + responseCode);
         } else {
-            System.out.println("Valid Response Code: " + responseCode);
             Scanner sc = new Scanner(url.openStream());
             while (sc.hasNext()) {
                 inLine = sc.nextLine();
