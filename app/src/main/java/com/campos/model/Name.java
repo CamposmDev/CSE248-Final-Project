@@ -1,4 +1,4 @@
-package model;
+package com.campos.model;
 
 public class Name {
     private String firstName;
