@@ -6,13 +6,13 @@ import android.os.Bundle;
 import android.util.Log;
 
 import java.net.URL;
-import java.util.Date;
 import java.util.Scanner;
 
 import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity {
     private static final String QUERY = "https://api.data.gov/ed/collegescorecard/v1/schools.json?&school.degrees_awarded.predominant=2,3&fields=id,school.name,school.city,school.state,school.zip,school.school_url,latest.student.size&api_key=eymRFR4vdKAgPCK3JIw9Es42ytaEelgZf43H5TKc&_per_page=100&_zip=11784&_distance=10";
+    private String s = "https://api.data.gov/ed/collegescorecard/v1/schools.json?&fields=id,school.region_id,school.name,school.city,school.state,school.zip,school.school_url,latest.cost.tuition.in_state,latest.cost.tuition.out_of_state,latest.student.size,latest.admissions.admission_rate.overall,school.degrees_awarded.predominant,latest.admissions.sat_scores.25th_percentile.critical_reading,latest.admissions.sat_scores.25th_percentile.math,latest.admissions.sat_scores.75th_percentile.critical_reading,latest.admissions.sat_scores.75th_percentile.math&api_key=eymRFR4vdKAgPCK3JIw9Es42ytaEelgZf43H5TKc&_per_page=100";
     private static final int VALID_RESPONSE_CODE = 200;
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void methodB() {
-        Log.println(Log.ASSERT, TAG, "Creating new thread...");
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
