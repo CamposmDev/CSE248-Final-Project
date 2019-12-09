@@ -7,6 +7,8 @@ import android.util.Log;
 
 import com.campos.R;
 import com.campos.util.Web;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.net.URL;
 import java.util.Scanner;
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         c.setRequestMethod("GET");
         c.connect();
         int responseCode = c.getResponseCode();
-        Log.println(Log.ASSERT, TAG, "Valid Response Code: " + responseCode);
+        Log.println(Log.ASSERT, TAG, "Response Code: " + responseCode);
         if (responseCode != VALID_RESPONSE_CODE) {
             throw new RuntimeException("HttpResponseCode: " + responseCode);
         } else {
@@ -56,10 +58,10 @@ public class MainActivity extends AppCompatActivity {
 				System.out.println(inLine);
             }
             sc.close();
-//            ObjectMapper objectMapper = new ObjectMapper();
-//            JsonNode node = objectMapper.readValue(inLine, JsonNode.class);
-//            JsonNode resultsArray = node.get("results");
-//            for (int i = 0; i < resultsArray.size(); i++) {
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode node = objectMapper.readValue(inLine, JsonNode.class);
+            JsonNode resultsArray = node.get("results");
+            for (int i = 0; i < resultsArray.size(); i++) {
 //                JsonNode result = resultsArray.get(i);
 //                JsonNode idNode = result.get("id");
 //                JsonNode schoolNameNode = result.get("school.name");
@@ -77,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
 //                int latestStudentSize = latestStudentSizeNode.asInt();
 //                School school;
 //                school = new School(id, name, city, state, zip, schoolUrl, latestStudentSize);
+            }
         }
     }
 }

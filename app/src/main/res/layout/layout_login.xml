@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     android:padding="10dp">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/compass"
+        android:gravity="center"
+        android:text="College Navigator"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="10dp" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -17,17 +28,6 @@
         app:layout_constraintBottom_toTopOf="@+id/tfSignUp"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="10dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="9dp"
-            android:layout_marginBottom="100dp"
-            android:drawableLeft="@drawable/compass"
-            android:gravity="center"
-            android:text="College Navigator"
-            android:textSize="36sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tfUsername"
@@ -59,6 +59,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
             android:text="Login"
             android:textSize="18sp" />
 
