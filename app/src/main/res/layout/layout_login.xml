@@ -6,28 +6,28 @@
     android:layout_height="match_parent"
     android:padding="10dp">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/compass"
+        android:gravity="center"
+        android:text="College Navigator"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="10dp" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginBottom="469dp"
         android:orientation="vertical"
         android:padding="10dp"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="10dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="College Navigator"
-                android:textSize="36sp" />
-        </LinearLayout>
+        app:layout_constraintBottom_toTopOf="@+id/tfSignUp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="10dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tfUsername"
@@ -40,7 +40,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="Username"
-                android:textSize="24sp" />
+                android:padding="10dp"
+                android:textColor="#F8FFFFFF"
+                android:textColorHint="#FCFFFFFF"
+                android:textSize="18sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,22 +53,24 @@
             android:layout_height="wrap_content"
             android:hint="Password"
             android:inputType="textPassword"
-            android:textSize="24sp" />
+            android:padding="10dp"
+            android:textSize="18sp" />
 
         <Button
-            android:id="@+id/btLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
             android:text="Login"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
     </LinearLayout>
 
     <TextView
         android:id="@+id/tfSignUp"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:clickable="true"
         android:gravity="center|center_horizontal|center_vertical"
         android:text="Don't have an account?"
         android:textSize="18sp"
