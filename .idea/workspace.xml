@@ -14,6 +14,9 @@
     <bookmark url="file://$PROJECT_DIR$/app/src/main/java/com/campos/app/MainActivity.java" line="71" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="8d1cdf53-2368-4c88-b573-b4c672069992" name="Default Changelist" comment="" />
+=======
     <list default="true" id="8d1cdf53-2368-4c88-b573-b4c672069992" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
@@ -27,6 +30,7 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/model/SatScores.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/model/SatScores.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campos/model/School.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campos/model/School.java" afterDir="false" />
     </list>
+>>>>>>> 56757ca04972874de0baf91d1fee1ffc99218e1d
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +40,14 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="ExecutionTargetManager" SELECTED_TARGET="FA7AN1A05019" />
+=======
+<<<<<<< HEAD
+=======
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_29_x86" />
+>>>>>>> 56757ca04972874de0baf91d1fee1ffc99218e1d
+>>>>>>> 4b5fb2d1d751f384545561e54017acbddde07853
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -46,7 +57,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
+=======
+      <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+=======
+>>>>>>> 4b5fb2d1d751f384545561e54017acbddde07853
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/campos/app/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="196">
@@ -87,6 +105,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/campos/model/School.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1012">
@@ -113,11 +132,26 @@
               </folding>
             </state>
           </provider>
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_signup.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+>>>>>>> 56757ca04972874de0baf91d1fee1ffc99218e1d
+          <provider editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="android-designer2" />
+>>>>>>> 4b5fb2d1d751f384545561e54017acbddde07853
         </entry>
       </file>
+<<<<<<< HEAD
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/login_content.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="1425">
+              <caret line="75" selection-start-line="75" selection-end-line="75" />
+=======
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/campos/model/SatScoresInfo.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="66">
               <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
               <folding>
@@ -126,12 +160,31 @@
                 <element signature="e#433#434#0" expanded="true" />
                 <element signature="e#470#471#0" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="88">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
+>>>>>>> 56757ca04972874de0baf91d1fee1ffc99218e1d
+>>>>>>> 4b5fb2d1d751f384545561e54017acbddde07853
             </state>
           </provider>
+          <provider selected="true" editor-type-id="android-designer2" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/campos/model/SatScores.java">
+=======
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/campos/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/campos/util/Web.java">
+>>>>>>> 4b5fb2d1d751f384545561e54017acbddde07853
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
               <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
@@ -171,6 +224,7 @@
           <provider editor-type-id="text-editor">
             <state relative-caret-position="1760">
               <caret line="80" selection-start-line="80" selection-end-line="80" />
+>>>>>>> 56757ca04972874de0baf91d1fee1ffc99218e1d
             </state>
           </provider>
           <provider selected="true" editor-type-id="android-designer2" />
@@ -220,8 +274,13 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+<<<<<<< HEAD
+    <option name="x" value="186" />
+    <option name="y" value="47" />
+=======
     <option name="x" value="185" />
     <option name="y" value="45" />
+>>>>>>> 56757ca04972874de0baf91d1fee1ffc99218e1d
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -230,6 +289,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scope">
         <subPane subId="Scope 'Project Source Files'; set:Project Source Files; class com.jetbrains.cidr.lang.search.scopes.ProjectSourcesScopeProvider$SourceFilesScope">
           <expand>
@@ -261,6 +321,10 @@
       </pane>
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 4b5fb2d1d751f384545561e54017acbddde07853
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -304,6 +368,82 @@
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
+=======
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Source Files'; set:Project Source Files; class com.jetbrains.cidr.lang.search.scopes.ProjectSourcesScopeProvider$SourceFilesScope">
+          <expand>
+            <path>
+              <item name="CamposCSE248FinalProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\CamposDev\CamposCSE248FinalProject" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="CamposCSE248FinalProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\CamposDev\CamposCSE248FinalProject" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="CamposCSE248FinalProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\CamposDev\CamposCSE248FinalProject" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="CamposCSE248FinalProject" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\CamposDev\CamposCSE248FinalProject" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+>>>>>>> 56757ca04972874de0baf91d1fee1ffc99218e1d
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="CamposCSE248FinalProject" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="CamposCSE248FinalProject" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="CamposCSE248FinalProject" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+<<<<<<< HEAD
+              <item name="campos" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CamposCSE248FinalProject" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+=======
+              <item name="util" type="cbb59c9e:AndroidPsiDirectoryNode" />
+>>>>>>> 56757ca04972874de0baf91d1fee1ffc99218e1d
+            </path>
+            <path>
+              <item name="CamposCSE248FinalProject" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+<<<<<<< HEAD
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+=======
+>>>>>>> 56757ca04972874de0baf91d1fee1ffc99218e1d
+>>>>>>> 4b5fb2d1d751f384545561e54017acbddde07853
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -435,12 +575,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
+    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.15991472" />
+      <window_info id="Structure" order="2" side_tool="true" />
+=======
     <frame x="0" y="0" width="1536" height="864" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49842766" weight="0.16308725" />
       <window_info id="Structure" order="2" sideWeight="0.5015723" side_tool="true" weight="0.16308725" />
+>>>>>>> 56757ca04972874de0baf91d1fee1ffc99218e1d
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" weight="0.3295302" />
       <window_info id="Image Layers" order="5" />
@@ -454,9 +603,20 @@
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.32869786" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Build" order="7" weight="0.2187105" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.32996207" />
       <window_info anchor="bottom" id="Android Profiler" order="9" />
+=======
+<<<<<<< HEAD
+      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.18353175" />
+      <window_info anchor="bottom" id="Find" order="8" />
+=======
+      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.2187105" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.32996207" />
+>>>>>>> 56757ca04972874de0baf91d1fee1ffc99218e1d
+      <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" />
+>>>>>>> 4b5fb2d1d751f384545561e54017acbddde07853
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
@@ -690,6 +850,54 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/campos/model/SatScores.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="67" selection-start-line="19" selection-start-column="67" selection-end-line="19" selection-end-column="67" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/campos/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/login_content.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="1425">
+          <caret line="75" selection-start-line="75" selection-end-line="75" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+=======
+>>>>>>> 4b5fb2d1d751f384545561e54017acbddde07853
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/campos/app/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -699,6 +907,7 @@
           </folding>
         </state>
       </provider>
+>>>>>>> 56757ca04972874de0baf91d1fee1ffc99218e1d
     </entry>
   </component>
 </project>

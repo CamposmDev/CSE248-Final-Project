@@ -9,13 +9,18 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
         android:drawableLeft="@drawable/compass"
         android:gravity="center"
         android:text="College Navigator"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="10dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -41,8 +46,6 @@
                 android:layout_marginBottom="10dp"
                 android:hint="Username"
                 android:padding="10dp"
-                android:textColor="#F8FFFFFF"
-                android:textColorHint="#FCFFFFFF"
                 android:textSize="18sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -59,7 +62,6 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button"
             android:text="Login"
             android:textSize="18sp" />
 
