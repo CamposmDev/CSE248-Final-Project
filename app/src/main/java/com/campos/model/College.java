@@ -1,6 +1,6 @@
 package com.campos.model;
 
-public class School {
+public class College {
     private String id;
     private String name;
     private Address address;
@@ -11,7 +11,7 @@ public class School {
     private int degreesAwarded;
     private SatScoresInfo satScoresInfo;
 
-    public School(String id, String name, Address address, String url, TuitionInfo tuitionInfo, int latestStudentSize, String admissionRate, int degreesAwarded, SatScoresInfo satScoresInfo) {
+    public College(String id, String name, Address address, String url, TuitionInfo tuitionInfo, int latestStudentSize, String admissionRate, int degreesAwarded, SatScoresInfo satScoresInfo) {
         this.id = id;
         this.name = name;
         this.address = address;

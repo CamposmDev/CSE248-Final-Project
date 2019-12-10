@@ -2,19 +2,24 @@ package com.campos.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.campos.R;
 import com.campos.model.Address;
+import com.campos.model.College;
 import com.campos.model.SatScores;
 import com.campos.model.SatScoresInfo;
-import com.campos.model.School;
 import com.campos.model.TuitionInfo;
 import com.campos.util.Web;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Scanner;
 
@@ -27,26 +32,43 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_login);
-        startDownloadOfData();
+        setContentView(R.layout.activity_main);
+        initListeners();
+        startDownloadingData();
     }
 
-    public void startDownloadOfData() {
-        Thread t = new Thread(new Runnable() {
+    public void initListeners() {
+        Button btLogin = findViewById(R.id.btLogin);
+        btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                try {
-                    downloadData();
-                } catch (Exception e) {
-                    Log.println(Log.ASSERT, TAG, e.toString());
-                }
+            public void onClick(View v) {
+                Log.println(Log.ASSERT, TAG, "Attempting to login...");
             }
         });
-        t.start();
+        TextView tfSignUp = findViewById(R.id.tfSignUp);
+        tfSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSignUpActivity();
+            }
+        });
+    }
+
+    private void openSignUpActivity() {
+        Intent intent = new Intent(this, SignUpActivity.class);
+        startActivity(intent);
+    }
+
+    public void startDownloadingData() {
+        try {
+            downloadData();
+        } catch (IOException e) {
+            Log.println(Log.ASSERT, TAG, e.toString());
+        }
     }
 
 
-    public void downloadData() throws Exception {
+    public void downloadData() throws IOException {
         String inLine = "";
         URL url = new URL(Web.COLLEGE_SCORECARD_QUERY);
         HttpsURLConnection c = (HttpsURLConnection) url.openConnection();
@@ -60,20 +82,19 @@ public class MainActivity extends AppCompatActivity {
             Scanner sc = new Scanner(url.openStream());
             while (sc.hasNext()) {
                 inLine = sc.nextLine();
-                Log.println(Log.ASSERT, TAG, inLine);
+//                Log.println(Log.ASSERT, TAG, inLine);
             }
             sc.close();
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode node = objectMapper.readValue(inLine, JsonNode.class);
             JsonNode resultsArray = node.get("results");
             for (int i = 0; i < resultsArray.size(); i++) {
-                JsonNode result = resultsArray.get(i);
-                emitSchool(result);
+                emitCollege(resultsArray.get(i));
             }
         }
     }
 
-    public void emitSchool(JsonNode result) {
+    public void emitCollege(JsonNode result) {
         JsonNode idNode = result.get("id");
         JsonNode schoolNameNode = result.get("school.name");
         JsonNode regionIdNode = result.get("school.region_id");
@@ -99,8 +120,8 @@ public class MainActivity extends AppCompatActivity {
         String city = schoolCityNode.asText();
         String state = schoolStateNode.asText();
         String schoolUrl = schoolUrlNode.asText();
-        int tuitionInState = Integer.parseInt(tuitionInStateNode.asText());
-        int tuitionOutState = Integer.parseInt(tuitionOutStateNode.asText());
+        int tuitionInState = tuitionInStateNode.asInt();
+        int tuitionOutState = tuitionOutStateNode.asInt();
         int latestStudentSize = latestStudentSizeNode.asInt();
         Address address = new Address(regionId, zip, city, state);
         TuitionInfo tuitionInfo = new TuitionInfo(tuitionInState, tuitionOutState);
@@ -115,8 +136,8 @@ public class MainActivity extends AppCompatActivity {
         SatScores satScores25th = new SatScores(criticalReading25thPercentile, math25thPercentile, writing25thPercentile);
         SatScores satScores75th = new SatScores(criticalReading75thPercentile, math75thPercentile, writing75thPercentile);
         SatScoresInfo satScoresInfo = new SatScoresInfo(satScores25th, satScores75th);
-        School school;
-        school = new School(id, name, address, schoolUrl, tuitionInfo, latestStudentSize, admissionRate, degreesAwarded, satScoresInfo);
-        Log.println(Log.ASSERT, TAG, school.toString());
+        College college;
+        college = new College(id, name, address, schoolUrl, tuitionInfo, latestStudentSize, admissionRate, degreesAwarded, satScoresInfo);
+        Log.println(Log.ASSERT, TAG, college.toString());
     }
 }

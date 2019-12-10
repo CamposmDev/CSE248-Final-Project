@@ -9,11 +9,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginRight="9dp"
         android:drawableLeft="@drawable/compass"
+        android:drawableRight="@drawable/compass"
         android:gravity="center"
         android:text="College Navigator"
         android:textSize="36sp"
@@ -35,23 +32,18 @@
         tools:layout_editor_absoluteX="10dp">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tfUsername"
+            android:id="@+id/login_tfUsername"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tfUsernameTextEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:hint="Username"
-                android:padding="10dp"
-                android:textSize="18sp" />
-
+                android:hint="Username" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <EditText
-            android:id="@+id/tfPassword"
+            android:id="@+id/login_tfPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -60,6 +52,7 @@
             android:textSize="18sp" />
 
         <Button
+            android:id="@+id/btLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"
@@ -69,12 +62,13 @@
 
     <TextView
         android:id="@+id/tfSignUp"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:clickable="true"
         android:gravity="center|center_horizontal|center_vertical"
-        android:text="Don't have an account?"
+        android:text="Don't have an account? Click here!"
+        android:textColor="#2196F3"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
