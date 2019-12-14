@@ -1,17 +1,17 @@
 package com.campos.model;
 
-public class School {
-    private int id;
+public class College {
+    private String id;
     private String name;
     private Address address;
     private String url;
     private TuitionInfo tuitionInfo;
     private int latestStudentSize;
-    private float admissionRate;
+    private String admissionRate;
     private int degreesAwarded;
     private SatScoresInfo satScoresInfo;
 
-    public School(int id, String name, Address address, String url, TuitionInfo tuitionInfo, int latestStudentSize, float admissionRate, int degreesAwarded, SatScoresInfo satScoresInfo) {
+    public College(String id, String name, Address address, String url, TuitionInfo tuitionInfo, int latestStudentSize, String admissionRate, int degreesAwarded, SatScoresInfo satScoresInfo) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -23,7 +23,7 @@ public class School {
         this.satScoresInfo = satScoresInfo;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -47,7 +47,7 @@ public class School {
         return latestStudentSize;
     }
 
-    public float getAdmissionRate() {
+    public String getAdmissionRate() {
         return admissionRate;
     }
 
