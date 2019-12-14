@@ -7,9 +7,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.campos.R;
+import com.google.android.material.textfield.TextInputEditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,6 +32,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.mi_Github:
+                Log.println(Log.ASSERT, "0", "Opening Developer's Github...");
+                break;
             case R.id.mi_Help:
                 Log.println(Log.ASSERT, "0", "User needs help!");
                 break;
@@ -43,6 +48,11 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.println(Log.ASSERT, "0", "Attempting to login...");
+                TextInputEditText tfUsername = findViewById(R.id.login_textInputUsername);
+                EditText tfPassword = findViewById(R.id.login_tfPassword);
+                String username = tfUsername.getText().toString();
+                String password = tfPassword.getText().toString();
+                Log.println(Log.ASSERT, "0", "User entered: " + username + " | " + password);
             }
         });
         TextView tfSignUp = findViewById(R.id.tfSignUp);
