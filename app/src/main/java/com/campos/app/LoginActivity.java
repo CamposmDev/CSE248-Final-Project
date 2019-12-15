@@ -2,6 +2,7 @@ package com.campos.app;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,16 +12,23 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.campos.R;
+import com.campos.model.DatabaseHelper;
+import com.campos.util.MyDatabase;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.sql.SQLException;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
+    private DatabaseHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initListeners();
+        dbHelper = new DatabaseHelper(this);
     }
 
     @Override

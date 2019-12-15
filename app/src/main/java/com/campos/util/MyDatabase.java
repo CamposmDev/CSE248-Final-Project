@@ -1,5 +1,6 @@
 package com.campos.util;
 
+import android.os.StrictMode;
 import android.util.Log;
 
 import com.campos.model.Address;
@@ -16,6 +17,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -24,19 +28,29 @@ public class MyDatabase {
     private static final String CONNECT_TO_DB = "jdbc:sqlite:CollegeNavigatorDB.sqlite";
 
     public static Connection connectToDB() {
+        Connection conn = null;
         try {
-            Class.forName("org.sqlite. JDBC");
-            Connection conn = DriverManager.getConnection(CONNECT_TO_DB);
-            return conn;
+            Class.forName("org.sqlite.JDBC");
+            conn = DriverManager.getConnection(CONNECT_TO_DB);
+            Log.println(Log.ASSERT, "0", conn.toString());
         } catch (SQLException e) {
-            Log.println(Log.ASSERT, "0", e.getSQLState());
+            Log.println(Log.ASSERT, "0", "Message: " + e.getSQLState());
         } catch (ClassNotFoundException e) {
             Log.println(Log.ASSERT, "0", e.getMessage());
         }
-        return null;
+        return conn;
     }
 
     public static void createCollegeNavigatorDB() throws SQLException {
+        Date currentDate = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.MONTH, 11);
+        cal.set(Calendar.DAY_OF_MONTH, 5);
+        cal.set(Calendar.YEAR, 2019);
+
+        Log.println(Log.ASSERT, "0", "Is current date after cal: "
+                + currentDate.after(cal.getTime()));
+
         Connection conn = connectToDB();
         Statement stmt = conn.createStatement();
         stmt.executeUpdate("drop table if exists College");

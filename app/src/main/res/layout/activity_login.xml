@@ -62,11 +62,12 @@
 
     <TextView
         android:id="@+id/tfSignUp"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:clickable="true"
         android:gravity="center|center_horizontal|center_vertical"
+        android:padding="10dp"
         android:text="Don't have an account? Click here!"
         android:textColor="#2196F3"
         android:textSize="18sp"
