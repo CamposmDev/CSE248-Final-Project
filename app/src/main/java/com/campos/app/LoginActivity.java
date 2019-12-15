@@ -1,6 +1,7 @@
 package com.campos.app;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -13,7 +14,9 @@ import android.widget.TextView;
 
 import com.campos.R;
 import com.campos.model.DatabaseHelper;
+import com.campos.util.AlertHelper;
 import com.campos.util.MyDatabase;
+import com.campos.util.MyLog;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.sql.SQLException;
@@ -27,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        AlertHelper.showMessage(this, "Welcome!", "In Your Face!");
         initListeners();
         dbHelper = new DatabaseHelper(this);
     }
@@ -60,7 +64,13 @@ public class LoginActivity extends AppCompatActivity {
                 EditText tfPassword = findViewById(R.id.login_tfPassword);
                 String username = tfUsername.getText().toString();
                 String password = tfPassword.getText().toString();
-                Log.println(Log.ASSERT, "0", "User entered: " + username + " | " + password);
+                MyLog.println("User entered: " + username + ", " + password);
+                Cursor res = dbHelper.findUserAccount(username);
+                if (res.getCount() != 0) {
+                    MyLog.println(res.getColumnCount());
+                    
+
+                }
             }
         });
         TextView tfSignUp = findViewById(R.id.tfSignUp);
