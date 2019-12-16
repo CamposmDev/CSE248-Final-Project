@@ -118,7 +118,7 @@ public class CollegeFinderActivity extends AppCompatActivity {
                 conditions += " AND city LIKE \'%" + city + "%\' AND menOnly=\'" + menOnly + "\' AND womenOnly=\'" + womenOnly + "\'";
             }
             if (zip != -1) {
-                conditions += " AND zip=\'" + zip + "\'";
+                conditions += " AND zip LIKE \'%" + zip + "%\'";
             }
             if (!state.equals(State.All.toString())) {
                 conditions += " AND state=\'" + state + "\'";

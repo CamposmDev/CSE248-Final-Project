@@ -10,5 +10,9 @@ his/her information later on in the program.  Also if the user wishes, he/she ca
 3.	User Login Module - On start up of the program, the user can enter his/her username and password.  If the user enters his/her
 username correctly and the password is wrong, the program will say you entered the wrong password.  If the username is not found in the
 database it will display an alert saying the username does not exist.  
-4.	College Search Module - 
-5.	College Match Module - 
+4.	College Search Module - Once the user has logged in, he/she can search for a college by its college name, city, zip, and state.  
+In order for the program to search for a college, the college name field must be filled in.  Once this is done, the user can press 
+the button "Find My Colllege' which will open an activity containing a ListView displaying all the college names that were found by the fields 
+given by the user.  Then the user can click on an item in the ListView and it will open a window containing all the information the database has that college the user selected.  
+5.	College Match Module - In the window that displays information about the college, there's a button called "Compare SAT Scores" where it will take the users SAT score and compare it
+to the college's 25th and 75th percentile SAT score.  
