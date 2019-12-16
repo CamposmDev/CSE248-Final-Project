@@ -8,13 +8,22 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.strictmode.SqliteObjectLeakedViolation;
 import android.util.Log;
 
+import java.io.Serializable;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
+    private static DatabaseHelper dbHelper;
     private static final String DB_NAME = "CollegeNavigatorDB";
     private static final String TABLE_COLLEGE = "College";
     private static final String TABLE_USERACCOUNT = "UserAccount";
 
+    public static DatabaseHelper getDbHelper() {
+        return dbHelper;
+    }
+
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, 1);
+        dbHelper = this;
+        onUpgrade(dbHelper.getWritableDatabase(), 1, 1);
     }
 
     @Override
@@ -37,9 +46,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public Cursor findCollege(String query) {
+        return null;
+    }
+
+    public boolean addCollege() {
+        return false;
+    }
+
     public Cursor findUserAccount(String username) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from " + TABLE_USERACCOUNT + " where username=" + username + ";", null);
+        Cursor res = db.rawQuery("select * from " + TABLE_USERACCOUNT + " where username=\"" + username + "\" ", null);
         return res;
     }
 

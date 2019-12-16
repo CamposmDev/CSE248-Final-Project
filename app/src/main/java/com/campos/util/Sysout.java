@@ -2,7 +2,11 @@ package com.campos.util;
 
 import android.util.Log;
 
-public class MyLog {
+public class Sysout {
+    public static void println() {
+        Log.println(Log.ASSERT, "0", "\n");
+    }
+
     public static void println(String x) {
         Log.println(Log.ASSERT, "0", x);
     }
@@ -11,5 +15,7 @@ public class MyLog {
         Log.println(Log.ASSERT, "0", String.valueOf(x));
     }
 
-
+    public static void println(boolean x) {
+        Log.println(Log.ASSERT, "0", String.valueOf(x));
+    }
 }

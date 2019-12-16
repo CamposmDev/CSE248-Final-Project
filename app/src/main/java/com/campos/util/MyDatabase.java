@@ -1,6 +1,5 @@
 package com.campos.util;
 
-import android.os.StrictMode;
 import android.util.Log;
 
 import com.campos.model.Address;
@@ -17,7 +16,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;

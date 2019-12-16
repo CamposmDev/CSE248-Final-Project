@@ -23,12 +23,12 @@
                 android:textSize="24sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/signup_tfFirstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/signup_tfFirstName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="First Name" />
@@ -36,24 +36,24 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/signup_tfLastName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/signup_tfLastName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Last Name" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/signup_tfEmail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Email">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/signup_tfEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="30dp" />
@@ -101,12 +101,12 @@
                 android:textSize="24sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/signup_tfUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/signup_tfUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Username" />
@@ -119,13 +119,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="Password"
-                android:inputType="textPassword" />
-
-            <EditText
-                android:id="@+id/signup_tfRetypePassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Re-Type Password"
                 android:inputType="textPassword" />
 
             <Button

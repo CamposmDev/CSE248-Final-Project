@@ -16,14 +16,15 @@
         android:roundIcon="@drawable/compass_green"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".app.LoginActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
-        </activity>
+        <activity
+            android:name=".app.CollegeFinderActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"></activity>
+        <activity
+            android:name=".app.LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"></activity>
         <activity
             android:name=".app.SignUpActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity
             android:name=".app.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">

@@ -23,7 +23,7 @@
         android:layout_marginBottom="469dp"
         android:orientation="vertical"
         android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/tfSignUp"
+        app:layout_constraintBottom_toTopOf="@+id/login_tfSignUp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.13999999"
         tools:layout_editor_absoluteX="10dp">
@@ -52,7 +52,7 @@
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/btLogin"
+            android:id="@+id/login_btLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"
@@ -61,7 +61,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tfSignUp"
+        android:id="@+id/login_tfSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
