@@ -13,23 +13,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.campos.R;
-import com.campos.model.DatabaseHelper;
+import com.campos.util.MyDB;
 import com.campos.util.AlertHelper;
+import com.campos.util.Sysout;
 import com.campos.util.Web;
-import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
-    private DatabaseHelper dbHelper;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 //        AlertHelper.showMessage(this, "Welcome!", "In Your Face!");
         initListeners();
-        dbHelper = new DatabaseHelper(this);
     }
 
     @Override
@@ -71,27 +69,29 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void attemptToLogin() {
-        TextInputEditText tfUsername = findViewById(R.id.login_textInputUsername);
+        EditText tfUsername = findViewById(R.id.login_tfUsername);
         EditText tfPassword = findViewById(R.id.login_tfPassword);
         String usernameEntered = tfUsername.getText().toString();
         String passwordEntered = tfPassword.getText().toString();
-//        Sysout.println("User entered: " + usernameEntered + ", " + passwordEntered);
-        Cursor res = dbHelper.findUserAccount(usernameEntered);
+        Sysout.println("User entered: " + usernameEntered + ", " + passwordEntered);
+        Cursor res = MyDB.getDb().findUserAccount(usernameEntered);
 //        Sysout.println(res.getCount());
         if (res.getCount() != 0) { // We found the username
             res.moveToNext();
             String password = res.getString(7);
+            res.close();
             if (password.equals(passwordEntered)) { // Check if the passwords match
-                openCollegeActivity(usernameEntered);
+                openCollegeFinderActivity(usernameEntered);
+                finish();
             } else {
-                AlertHelper.showMessage(this, "Invalid Password!", "Passwords do not match!");
+                AlertHelper.showMessage(this, "Invalid Password!", "Password does not match!");
             }
         } else {
             AlertHelper.showMessage(this, "Invalid Login!", "The username you entered does not exist!");
         }
     }
 
-    private void openCollegeActivity(String username) {
+    private void openCollegeFinderActivity(String username) {
         Intent intent = new Intent(this, CollegeFinderActivity.class);
         intent.putExtra("USERNAME", username);
         startActivity(intent);

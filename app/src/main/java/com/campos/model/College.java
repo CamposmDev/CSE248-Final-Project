@@ -7,11 +7,12 @@ public class College {
     private String url;
     private TuitionInfo tuitionInfo;
     private int latestStudentSize;
-    private String admissionRate;
+    private double admissionRate;
     private int degreesAwarded;
     private SatScoresInfo satScoresInfo;
+    private int menOnly, womenOnly;
 
-    public College(String id, String name, Address address, String url, TuitionInfo tuitionInfo, int latestStudentSize, String admissionRate, int degreesAwarded, SatScoresInfo satScoresInfo) {
+    public College(String id, String name, Address address, String url, TuitionInfo tuitionInfo, int latestStudentSize, double admissionRate, int degreesAwarded, SatScoresInfo satScoresInfo, int menOnly, int womenOnly) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -21,6 +22,8 @@ public class College {
         this.admissionRate = admissionRate;
         this.degreesAwarded = degreesAwarded;
         this.satScoresInfo = satScoresInfo;
+        this.menOnly = menOnly;
+        this.womenOnly = womenOnly;
     }
 
     public String getId() {
@@ -47,7 +50,7 @@ public class College {
         return latestStudentSize;
     }
 
-    public String getAdmissionRate() {
+    public double getAdmissionRate() {
         return admissionRate;
     }
 
@@ -57,6 +60,14 @@ public class College {
 
     public SatScoresInfo getSatScoresInfo() {
         return satScoresInfo;
+    }
+
+    public int getMenOnly() {
+        return menOnly;
+    }
+
+    public int getWomenOnly() {
+        return womenOnly;
     }
 
     @Override

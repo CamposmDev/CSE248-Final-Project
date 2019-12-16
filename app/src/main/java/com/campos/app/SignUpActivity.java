@@ -10,9 +10,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.campos.R;
-import com.campos.model.DatabaseHelper;
+import com.campos.util.MyDB;
 import com.campos.util.AlertHelper;
-import com.campos.util.Sysout;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -58,10 +57,10 @@ public class SignUpActivity extends AppCompatActivity {
 //        Sysout.println(writingScore);
 //        Sysout.println(username);
 //        Sysout.println(password);
-        Cursor res = DatabaseHelper.getDbHelper().findUserAccount(username);
+        Cursor res = MyDB.getDb().findUserAccount(username);
 //        Sysout.println(res.getCount());
         if (res.getCount() == 0) { // Check if unique username
-            DatabaseHelper.getDbHelper().addUserAccount(firstName, lastName, email, readingScore, mathScore, writingScore, username, password);
+            MyDB.getDb().addUserAccount(firstName, lastName, email, readingScore, mathScore, writingScore, username, password);
             AlertHelper.showToast(this, "Successfully signed up! :D", Toast.LENGTH_LONG);
             finish();
         } else { // Not unique username

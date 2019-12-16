@@ -1,25 +1,25 @@
 package com.campos.model;
 
 public class SatScores {
-    private String criticalReadingScore;
-    private String mathScore;
-    private String writingScore;
+    private int criticalReadingScore;
+    private int mathScore;
+    private int writingScore;
 
-    public SatScores(String criticalReadingScore, String mathScore, String writingScore) {
+    public SatScores(int criticalReadingScore, int mathScore, int writingScore) {
         this.criticalReadingScore = criticalReadingScore;
         this.mathScore = mathScore;
         this.writingScore = writingScore;
     }
 
-    public String getCriticalReadingScore() {
+    public int getCriticalReadingScore() {
         return criticalReadingScore;
     }
 
-    public String getMathScore() {
+    public int getMathScore() {
         return mathScore;
     }
 
-    public String getWritingScore() {
+    public int getWritingScore() {
         return writingScore;
     }
 

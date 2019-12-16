@@ -3,26 +3,20 @@ package com.campos.app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.StrictMode;
-import android.util.Log;
-import android.widget.ProgressBar;
 
 import com.campos.R;
-import com.campos.model.DatabaseHelper;
-import com.campos.util.MyDatabase;
-
-import java.sql.SQLException;
+import com.campos.util.MyDB;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int SPLASH_TIME_OUT = 1000;
+    private static final int SPLASH_TIME_OUT = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MyDB.setMyDB(this);
         displayLoginActivity();
     }
 

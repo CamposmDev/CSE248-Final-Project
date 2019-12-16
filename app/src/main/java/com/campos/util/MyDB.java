@@ -1,30 +1,31 @@
-package com.campos.model;
+package com.campos.util;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.provider.ContactsContract;
 
-import com.campos.util.Sysout;
-
-import java.io.IOException;
-
-public class MyDatabase extends SQLiteOpenHelper {
-    private static MyDatabase dbHelper;
+public class MyDB extends SQLiteOpenHelper {
+    private static MyDB dbHelper;
     private static final String DB_NAME = "CollegeNavigatorDB";
     private static final String TABLE_COLLEGE = "College";
     private static final String TABLE_USER_ACCOUNT = "UserAccount";
 
-    public static MyDatabase getDb() {
+    public static MyDB getDb() {
         return dbHelper;
     }
 
-    public MyDatabase(Context context) {
+    public static void setMyDB(Context context) {
+        dbHelper = new MyDB(context);
+    }
+
+    private MyDB(Context context) {
         super(context, DB_NAME, null, 1);
         dbHelper = this;
-        onUpgrade(dbHelper.getWritableDatabase(), 1, 1);
+        if (MyUtils.isNewYear()) {
+            onUpgrade(dbHelper.getWritableDatabase(), 1, 1);
+        }
     }
 
     @Override
@@ -39,6 +40,7 @@ public class MyDatabase extends SQLiteOpenHelper {
                 "writingScore int, " +
                 "username VARCHAR(64) PRIMARY KEY, " +
                 "password VARCHAR(16))");
+
         Sysout.println("Creating " + TABLE_COLLEGE + " table");
         db.execSQL("CREATE TABLE College(" +
                 "id VARCHAR PRIMARY KEY, " +
@@ -64,7 +66,7 @@ public class MyDatabase extends SQLiteOpenHelper {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                new DatabaseLoader().execute();
+                new DBLoader().execute();
             }
         }).start();
     }
@@ -76,8 +78,16 @@ public class MyDatabase extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public Cursor findCollege(String query) {
-        SQLiteDatabase db = this.getWritableDatabase();
+    public Cursor findCollegeByName(String name) {
+        String query = "SELECT * FROM " + TABLE_COLLEGE + " WHERE name=\'" + name + "\'";
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor res = db.rawQuery(query, null);
+        return res;
+    }
+
+    public Cursor findCollegeByConditions(String conditions) {
+        String query = "SELECT name FROM " + TABLE_COLLEGE + " WHERE " + conditions;
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor res = db.rawQuery(query, null);
         return res;
     }
@@ -115,13 +125,13 @@ public class MyDatabase extends SQLiteOpenHelper {
     }
 
     public Cursor findUserAccount(String username) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " + TABLE_USER_ACCOUNT + " where username=\"" + username + "\" ", null);
         return res;
     }
 
     public boolean addUserAccount(String firstName, String lastName, String email, int readingScore, int mathScore, int writingScore, String username, String password) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("firstName", firstName);
         contentValues.put("lastName", lastName);

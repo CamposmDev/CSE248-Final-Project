@@ -1,19 +1,19 @@
-package com.campos.model;
+package com.campos.util;
 
 import android.os.AsyncTask;
 
-import com.campos.util.Sysout;
-import com.campos.util.Web;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class DatabaseLoader extends AsyncTask<Void, Void, Void> {
+public class DBLoader extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... params) {
         try {
@@ -48,7 +48,7 @@ public class DatabaseLoader extends AsyncTask<Void, Void, Void> {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode node = objectMapper.readValue(inLine, JsonNode.class);
         JsonNode metaDataNode = node.get("metadata");
-        Sysout.println(metaDataNode.toPrettyString());
+        Sysout.println(metaDataNode.toString());
         int totalPages = metaDataNode.get("total").asInt();
         return totalPages;
     }
@@ -66,7 +66,7 @@ public class DatabaseLoader extends AsyncTask<Void, Void, Void> {
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode node = objectMapper.readValue(inLine, JsonNode.class);
             JsonNode resultsArray = node.get("results");
-            Sysout.println(resultsArray.toPrettyString());
+            Sysout.println(resultsArray.toString());
             for (int j = 0; j < resultsArray.size(); j++) {
                 emitCollege(resultsArray.get(j));
             }
@@ -132,7 +132,7 @@ public class DatabaseLoader extends AsyncTask<Void, Void, Void> {
 //        College college;
 //        college = new College(id, name, address, schoolUrl, tuitionInfo, latestStudentSize, admissionRate, degreesAwarded, satScoresInfo, menOnly, womenOnly);
 //        Sysout.println(college.toString());
-        MyDatabase.getDb().addCollege(id, name, regionId, zip, city, state, schoolUrl,
+        MyDB.getDb().addCollege(id, name, regionId, zip, city, state, schoolUrl,
                 latestStudentSize, tuitionInState, tuitionOutState, admissionRate, degreesAwarded,
                 readingScore25th, readingScore75th, mathScore25th, mathScore75th, writingScore25th, writingScore75th, menOnly, womenOnly);
     }
