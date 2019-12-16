@@ -1,6 +1,7 @@
 package com.campos.app;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -14,11 +15,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.campos.R;
 import com.campos.util.AlertUtil;
 import com.campos.util.MyDB;
+import com.campos.util.Sysout;
 
 public class MyAccountActivity extends AppCompatActivity {
     private String username;
     private TextView tfUsername;
-    private EditText tfFirst, tfLast;
+    private EditText tfFirst, tfLast, tfEmail;
     private EditText tfReading, tfMath, tfWriting;
 
 
@@ -33,28 +35,46 @@ public class MyAccountActivity extends AppCompatActivity {
     }
 
     private void addListeners() {
-        Button btChangePassword = findViewById(R.id.myAccount_btChangePassword);
-        btChangePassword.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.myAccount_btUpdate).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                updateProfile();
             }
         });
-        Button btUpdate = findViewById(R.id.myAccount_btUpdate);
-        btUpdate.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.myAccount_btDelete).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                deleteProfile();
             }
         });
-    }
 
-    private void changePassword() {
-        AlertUtil.showMessage(this, "Change Password", "Not Implemented Yet");
     }
 
     private void updateProfile() {
-        AlertUtil.showMessage(this, "Update", "Successfully updated profile!");
+        String username = tfUsername.getText().toString();
+        String firstName = tfFirst.getText().toString();
+        String lastName = tfLast.getText().toString();
+        String email = tfEmail.getText().toString();
+        int readingScore = 0;
+        int mathScore = 0;
+        int writingScore = 0;
+        try {
+            readingScore = Integer.parseInt(tfReading.getText().toString());
+            mathScore = Integer.parseInt(tfMath.getText().toString());
+            writingScore = Integer.parseInt(tfWriting.getText().toString());
+        } catch (Exception e) {
+            AlertUtil.showMessage(this, "Error", "All fields for the SAT scores must be filled in.");
+        }
+        MyDB.getDb().updateUserAccountByUsername(
+                username, firstName, lastName, email, readingScore, mathScore, writingScore);
+        String message = "Successfully updated profile!\n";
+        message += "First Name: " + firstName + "\n";
+        message += "Last Name: " + lastName + "\n";
+        message += "Email: " + email + "\n";
+        message += "Reading Score: " + readingScore + "\n";
+        message += "Math Score: " + mathScore + "\n";
+        message += "Writing Score: " + writingScore + "\n";
+        AlertUtil.showMessage(this, username, message);
     }
 
     private void deleteProfile() {
@@ -64,16 +84,22 @@ public class MyAccountActivity extends AppCompatActivity {
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                MyDB.getDb().deleteUserAccountByUsername(username);
+                finish();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
         alert.setNegativeButton("No", null);
+        alert.show();
     }
 
     private void initControls() {
         tfUsername = findViewById(R.id.myAccount_username);
         tfFirst = findViewById(R.id.myAccount_firstName);
         tfLast = findViewById(R.id.myAccount_lastName);
+        tfEmail = findViewById(R.id.myAccount_email);
         tfReading = findViewById(R.id.myAccount_readingScore);
         tfMath = findViewById(R.id.myAccount_mathScore);
         tfWriting = findViewById(R.id.myAccount_writingScore);
@@ -82,8 +108,12 @@ public class MyAccountActivity extends AppCompatActivity {
     private void fillFields() {
         Cursor result = MyDB.getDb().findUserAccountByUsername(username);
         result.moveToNext();
-        ((TextView) findViewById(R.id.myAccount_username)).setText(username);
-        ((EditText) findViewById(R.id.myAccount_firstName)).setText(result.getString(0));
-        ((EditText) findViewById(R.id.myAccount_lastName)).setText(result.getString(1));
+        tfUsername.setText(username);
+        tfFirst.setText(result.getString(0));
+        tfLast.setText(result.getString(1));
+        tfEmail.setText(result.getString(2));
+        tfReading.setText(result.getString(3));
+        tfMath.setText(result.getString(4));
+        tfWriting.setText(result.getString(5));
     }
 }

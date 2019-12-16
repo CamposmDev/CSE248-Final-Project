@@ -92,14 +92,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="School of:"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:visibility="gone" />
 
                 <RadioGroup
                     android:id="@+id/cf_radioGroup"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="20dp"
-                    android:checkedButton="@id/cf_radioButton_Men">
+                    android:checkedButton="@id/cf_radioButton_Men"
+                    android:visibility="gone">
 
                     <RadioButton
                         android:id="@+id/cf_radioButton_Men"

@@ -124,9 +124,26 @@ public class MyDB extends SQLiteOpenHelper {
         return true;
     }
 
-    public Cursor deleteUserAccountByUsername(String username) {
+    public boolean updateUserAccountByUsername(
+            String username, String firstName, String lastName, String email,
+            int readingScore, int mathScore, int writingScore) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor res = db.rawQuery("");
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("firstName", firstName);
+        contentValues.put("lastName", lastName);
+        contentValues.put("email", email);
+        contentValues.put("readingScore", readingScore);
+        contentValues.put("mathScore", mathScore);
+        contentValues.put("writingScore", writingScore);
+        contentValues.put("username", username);
+//        contentValues.put("password", password);
+        db.update(TABLE_USER_ACCOUNT, contentValues, "username = ?", new String[] { username });
+        return true;
+    }
+
+    public int deleteUserAccountByUsername(String username) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        return db.delete(TABLE_USER_ACCOUNT, "username = ?", new String[] {username});
     }
 
     public Cursor findUserAccountByUsername(String username) {

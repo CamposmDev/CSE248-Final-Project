@@ -135,9 +135,9 @@ public class CollegeViewerActivity extends AppCompatActivity {
 //        tfUrl.setTextColor(Color.BLUE);
 
         TextView tfTuitionInState = findViewById(R.id.cv_tuitionInState);
-        tfTuitionInState.append(tuitionInState);
+        tfTuitionInState.append("$" + tuitionInState);
         TextView tfTuitonOutOfState = findViewById(R.id.cv_tuitionOutOfState);
-        tfTuitonOutOfState.append(tuitionOutOfState);
+        tfTuitonOutOfState.append("$" + tuitionOutOfState);
 
         TextView tfReading25th = findViewById(R.id.cv_reading25th);
         tfReading25th.append(readingScore25th + "");
