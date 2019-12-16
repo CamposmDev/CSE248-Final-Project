@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.campos.R;
 import com.campos.util.MyDB;
-import com.campos.util.AlertHelper;
+import com.campos.util.AlertUtil;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -28,12 +28,12 @@ public class SignUpActivity extends AppCompatActivity {
         btSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                emitUserAccount();
+                createUserAccount();
             }
         });
     }
 
-    public void emitUserAccount() {
+    public void createUserAccount() {
         String firstName = ((TextInputEditText) findViewById(R.id.signup_tfFirstName)).getText().toString();
         String lastName = ((TextInputEditText) findViewById(R.id.signup_tfLastName)).getText().toString();
         String email = ((TextInputEditText) findViewById(R.id.signup_tfEmail)).getText().toString();
@@ -49,22 +49,20 @@ public class SignUpActivity extends AppCompatActivity {
         }
         String username = ((TextInputEditText) findViewById(R.id.signup_tfUsername)).getText().toString();
         String password = ((EditText) findViewById(R.id.signup_tfPassword)).getText().toString();
-//        Sysout.println(firstName);
-//        Sysout.println(lastName);
-//        Sysout.println(email);
-//        Sysout.println(readingScore);
-//        Sysout.println(mathScore);
-//        Sysout.println(writingScore);
-//        Sysout.println(username);
-//        Sysout.println(password);
-        Cursor res = MyDB.getDb().findUserAccount(username);
-//        Sysout.println(res.getCount());
-        if (res.getCount() == 0) { // Check if unique username
-            MyDB.getDb().addUserAccount(firstName, lastName, email, readingScore, mathScore, writingScore, username, password);
-            AlertHelper.showToast(this, "Successfully signed up! :D", Toast.LENGTH_LONG);
-            finish();
-        } else { // Not unique username
-            AlertHelper.showMessage(this, "Invalid Username", "The username: " + username + " is already taken!");
+
+        if(username.isEmpty()) {
+            AlertUtil.showMessage(this, "Invalid Username", "Your username can't be empty");
+        } else if (password.isEmpty()) {
+            AlertUtil.showMessage(this, "Invalid Password", "Your password can't be empty");
+        } else {
+            Cursor result = MyDB.getDb().findUserAccountByUsername(username);
+            if (result.getCount() == 0) { // Check if unique username
+                MyDB.getDb().addUserAccount(firstName, lastName, email, readingScore, mathScore, writingScore, username, password);
+                AlertUtil.showToast(this, "Successfully signed up! :D", Toast.LENGTH_LONG);
+                finish();
+            } else { // Not a unique username
+                AlertUtil.showMessage(this, "Invalid Username", "The username: " + username + " is already taken!");
+            }
         }
     }
 }

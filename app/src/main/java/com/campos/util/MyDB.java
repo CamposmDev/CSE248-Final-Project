@@ -16,7 +16,7 @@ public class MyDB extends SQLiteOpenHelper {
         return dbHelper;
     }
 
-    public static void setMyDB(Context context) {
+    public static void initMyDB(Context context) {
         dbHelper = new MyDB(context);
     }
 
@@ -124,7 +124,12 @@ public class MyDB extends SQLiteOpenHelper {
         return true;
     }
 
-    public Cursor findUserAccount(String username) {
+    public Cursor deleteUserAccountByUsername(String username) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor res = db.rawQuery("");
+    }
+
+    public Cursor findUserAccountByUsername(String username) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " + TABLE_USER_ACCOUNT + " where username=\"" + username + "\" ", null);
         return res;

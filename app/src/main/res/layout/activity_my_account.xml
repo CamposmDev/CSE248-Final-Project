@@ -22,14 +22,15 @@
                 android:background="@color/cardview_dark_background"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="TextView"
+                android:text="Username Goes Here"
                 android:textColor="#FFFF"
                 android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -39,6 +40,7 @@
                         android:id="@+id/myAccount_firstName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
                         android:hint="First Name" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,6 +52,7 @@
                         android:id="@+id/myAccount_lastName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
                         android:hint="Last Name" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -61,6 +64,7 @@
                         android:id="@+id/myAccount_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
                         android:hint="Email" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -76,6 +80,7 @@
                     android:id="@+id/myAccount_mathScore"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
                     android:ems="10"
                     android:hint="Math Score"
                     android:inputType="number" />
@@ -84,6 +89,7 @@
                     android:id="@+id/myAccount_writingScore"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
                     android:ems="10"
                     android:hint="Writing Score"
                     android:inputType="number" />
@@ -101,6 +107,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Update My Info" />
+
+            <Button
+                android:id="@+id/myAccount_btDelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Delete My Account" />
 
         </LinearLayout>
     </ScrollView>

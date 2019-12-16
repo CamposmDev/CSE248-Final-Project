@@ -14,10 +14,9 @@ import android.widget.TextView;
 
 import com.campos.R;
 import com.campos.util.MyDB;
-import com.campos.util.AlertHelper;
+import com.campos.util.AlertUtil;
 import com.campos.util.Sysout;
 import com.campos.util.Web;
-import com.google.android.material.textfield.TextInputLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,7 +25,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-//        AlertHelper.showMessage(this, "Welcome!", "In Your Face!");
         initListeners();
     }
 
@@ -74,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
         String usernameEntered = tfUsername.getText().toString();
         String passwordEntered = tfPassword.getText().toString();
         Sysout.println("User entered: " + usernameEntered + ", " + passwordEntered);
-        Cursor res = MyDB.getDb().findUserAccount(usernameEntered);
+        Cursor res = MyDB.getDb().findUserAccountByUsername(usernameEntered);
 //        Sysout.println(res.getCount());
         if (res.getCount() != 0) { // We found the username
             res.moveToNext();
@@ -84,10 +82,10 @@ public class LoginActivity extends AppCompatActivity {
                 openCollegeFinderActivity(usernameEntered);
                 finish();
             } else {
-                AlertHelper.showMessage(this, "Invalid Password!", "Password does not match!");
+                AlertUtil.showMessage(this, "Invalid Password!", "Password does not match!");
             }
         } else {
-            AlertHelper.showMessage(this, "Invalid Login!", "The username you entered does not exist!");
+            AlertUtil.showMessage(this, "Invalid Login!", "The username you entered does not exist!");
         }
     }
 

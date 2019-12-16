@@ -4,7 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.widget.Toast;
 
-public class AlertHelper {
+public class AlertUtil {
 
     public static void showMessage(Context context, String title, String message) {
         AlertDialog.Builder alert = new AlertDialog.Builder(context);

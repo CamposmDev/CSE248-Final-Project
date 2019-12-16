@@ -1,12 +1,8 @@
 package com.campos.app;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +11,7 @@ import android.widget.TextView;
 import com.campos.R;
 import com.campos.model.SatScores;
 import com.campos.model.SatScoresInfo;
+import com.campos.util.AlertUtil;
 import com.campos.util.MyDB;
 import com.campos.util.Sysout;
 
@@ -52,25 +49,46 @@ public class CollegeViewerActivity extends AppCompatActivity {
         btCompare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                compareSatScores();
+                String message = compareSatScores();
+                AlertUtil.showMessage(CollegeViewerActivity.this,
+                        "Chances of Being Accepted", message);
             }
         });
     }
 
-    private void compareSatScores() {
-        Sysout.println("Comparing SAT Scores...");
-        Cursor result = MyDB.getDb().findUserAccount(getIntent().getStringExtra("USERNAME"));
+    private String compareSatScores() {
+        Cursor result = MyDB.getDb().findUserAccountByUsername(getIntent().getStringExtra("USERNAME"));
         result.moveToNext();
+        String chancesOfBeingAccepted, message;
         int readingScore = result.getInt(result.getColumnIndex("readingScore"));
         int mathScore = result.getInt(result.getColumnIndex("mathScore"));
         int writingScore = result.getInt(result.getColumnIndex("writingScore"));
         SatScores satScores = new SatScores(readingScore, mathScore, writingScore);
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle("Chance of Acceptance");
-        dialog.setMessage("Based on your SAT Scores: ");
-        dialog.setPositiveButton("Ok", null);
-        dialog.show();
+        int userSatScore = satScores.getTotalScore();
+        int collegeSatScore25th = satScoresInfo.getPercentile25th().getTotalScore();
+        int collegeSatScore75th = satScoresInfo.getPercentile75th().getTotalScore();
+        Sysout.println("User SAT Score: " + userSatScore);
+        Sysout.println("College 25th: " + collegeSatScore25th);
+        Sysout.println("College 75th: " + collegeSatScore75th);
 
+        if (collegeSatScore25th == 0 && collegeSatScore75th == 0) {
+            message = "Cannot determine chances of being accepted.  No SAT score data available from the school.";
+        } else if (userSatScore == 0) {
+            message = "Cannot determine chances of being accepted.  No SAT score data available from you.";
+        } else {
+            if (userSatScore > collegeSatScore75th) {
+                chancesOfBeingAccepted = "greater than 75%";
+            } else if (userSatScore > collegeSatScore25th) {
+                chancesOfBeingAccepted = "between 25% and 75%";
+            } else {
+                chancesOfBeingAccepted = "less than 25%";
+            }
+            message = "Your chance of being accepted is " + chancesOfBeingAccepted + "\n";
+            message += "Your SAT Score: " + userSatScore + "\n";
+            message += "School SAT Score (25th): " + collegeSatScore25th + "\n";
+            message += "School SAT Score (75th): " + collegeSatScore75th + "\n";
+        }
+        return message;
     }
 
     private void fillDataFields() {

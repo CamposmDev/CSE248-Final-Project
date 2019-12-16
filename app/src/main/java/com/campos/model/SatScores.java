@@ -23,6 +23,10 @@ public class SatScores {
         return writingScore;
     }
 
+    public int getTotalScore() {
+        return criticalReadingScore + mathScore + writingScore;
+    }
+
     @Override
     public String toString() {
         return "SatScores{" +

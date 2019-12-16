@@ -12,10 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.campos.R;
 import com.campos.model.State;
-import com.campos.util.AlertHelper;
+import com.campos.util.AlertUtil;
 import com.campos.util.MyDB;
 import com.campos.util.Sysout;
 
@@ -32,6 +33,7 @@ public class CollegeFinderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_college_finder);
         username = getIntent().getStringExtra("USERNAME");
+        AlertUtil.showToast(this, "Welcome " + username + "! :D", Toast.LENGTH_LONG);
         Sysout.println(username);
         initListeners();
     }
@@ -46,10 +48,9 @@ public class CollegeFinderActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.mi_MyAccount:
-                AlertHelper.showMessage(this, "WIP", "Not Implemented Yet");
-//                Intent intentMyAccount = new Intent(this, MyAccountActivity.class);
-//                intentMyAccount.putExtra("USERNAME", username);
-//                startActivity(intentMyAccount);
+                Intent intentMyAccount = new Intent(this, MyAccountActivity.class);
+                intentMyAccount.putExtra("USERNAME", username);
+                startActivity(intentMyAccount);
                 break;
             case R.id.mi_Signout:
                 Intent intentLogin = new Intent(this, LoginActivity.class);
@@ -96,7 +97,7 @@ public class CollegeFinderActivity extends AppCompatActivity {
     }
 
     private void findColleges() {
-        String collegeName = ((EditText) findViewById(R.id.cf_CollegeName)).getText().toString();
+        String name = ((EditText) findViewById(R.id.cf_CollegeName)).getText().toString();
         String city = ((EditText) findViewById(R.id.cf_City)).getText().toString();
         int zip = 0;
         try {
@@ -105,16 +106,16 @@ public class CollegeFinderActivity extends AppCompatActivity {
             zip = -1;
         }
         String state = ((Spinner) findViewById(R.id.cf_spinnerState)).getSelectedItem().toString();
-        Sysout.println(collegeName);
+        Sysout.println(name);
         Sysout.println(city);
         Sysout.println(zip);
         Sysout.println(state);
         String conditions = null;
 
-        if (!collegeName.isEmpty()) {
-            conditions = "name LIKE \'%" + collegeName + "%\'";
+        if (!name.isEmpty()) {
+            conditions = "name LIKE \'%" + name + "%\'";
             if (!city.isEmpty()) {
-                conditions += " AND city LIKE \'%" + city + "%\' AND menOnly=" + menOnly + " AND womenOnly=" + womenOnly;
+                conditions += " AND city LIKE \'%" + city + "%\' AND menOnly=\'" + menOnly + "\' AND womenOnly=\'" + womenOnly + "\'";
             }
             if (zip != -1) {
                 conditions += " AND zip=\'" + zip + "\'";
@@ -124,7 +125,7 @@ public class CollegeFinderActivity extends AppCompatActivity {
             }
             collectResults(conditions);
         } else {
-            AlertHelper.showMessage(this, "Missing Information D:", "Not enough information to find colleges.");
+            AlertUtil.showMessage(this, "Missing Information D:", "Not enough information to find colleges.");
         }
     }
 
