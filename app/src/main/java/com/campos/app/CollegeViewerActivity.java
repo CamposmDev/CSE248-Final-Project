@@ -52,16 +52,25 @@ public class CollegeViewerActivity extends AppCompatActivity {
         btCompare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Sysout.println("Comparing SAT Scores...");
-                Cursor result = MyDB.getDb().findUserAccount(getIntent().getStringExtra("USERNAME"));
-                result.moveToNext();
-                int readingScore = result.getInt(result.getColumnIndex("readingScore"));
-                int mathScore = result.getInt(result.getColumnIndex("mathScore"));
-                int writingScore = result.getInt(result.getColumnIndex("writingScore"));
-                SatScores satScores = new SatScores(readingScore, mathScore, writingScore);
-                AlertDialog.Builder dialog =
+                compareSatScores();
             }
         });
+    }
+
+    private void compareSatScores() {
+        Sysout.println("Comparing SAT Scores...");
+        Cursor result = MyDB.getDb().findUserAccount(getIntent().getStringExtra("USERNAME"));
+        result.moveToNext();
+        int readingScore = result.getInt(result.getColumnIndex("readingScore"));
+        int mathScore = result.getInt(result.getColumnIndex("mathScore"));
+        int writingScore = result.getInt(result.getColumnIndex("writingScore"));
+        SatScores satScores = new SatScores(readingScore, mathScore, writingScore);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("Chance of Acceptance");
+        dialog.setMessage("Based on your SAT Scores: ");
+        dialog.setPositiveButton("Ok", null);
+        dialog.show();
+
     }
 
     private void fillDataFields() {

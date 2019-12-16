@@ -46,13 +46,14 @@ public class CollegeFinderActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.mi_MyAccount:
-//                Intent intent = new Intent(this, MyAccountActivity.class);
-//                intent.putExtra("USERNAME", username);
-//                startActivity(intent);
+                AlertHelper.showMessage(this, "WIP", "Not Implemented Yet");
+//                Intent intentMyAccount = new Intent(this, MyAccountActivity.class);
+//                intentMyAccount.putExtra("USERNAME", username);
+//                startActivity(intentMyAccount);
                 break;
             case R.id.mi_Signout:
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
+                Intent intentLogin = new Intent(this, LoginActivity.class);
+                startActivity(intentLogin);
                 finish();
                 break;
         }
