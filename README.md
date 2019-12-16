@@ -1,8 +1,7 @@
 # CamposCSE248FinalProject
 College Navigator App
 
-1.	Data Retrieval Module - I used the jackson API to gather all the data of the colleges from College Scorecard API.  Using the my class DBLoader I download the data yearly  
-and using ObjectMapper and JsonNode to parse the JSON files I store the data into a SQLite database using SQLiteOpenHelper.  I use the metadata to loop through all 100 pages of the JSON file that has 20 colleges per page.  
+1.	Data Retrieval Module - I used the jackson API to gather all the data of the colleges from College Scorecard API.  Using my class DBLoader I download the data yearly and using ObjectMapper and JsonNode to parse the JSON files I store the data into a SQLite database using SQLiteOpenHelper.  I use the metadata to loop through all 100 pages of the JSON file that has 20 colleges per page in DBLoader class and use MyDB class to store and retrieve data from my database.  
 2.	User Profile Module - If the user doesn't have an account, he/she can sign up to create an account.  
 On the login screen, the user can click the text "Don't have an account? Click here!" which will open an activity
 where the user can enter his/her information such username and password.  Username has to be unique or it will display an alert
