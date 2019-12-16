@@ -1,4 +1,4 @@
 package com.campos.util;
 
-public class PasswordUtil {
+public class MyUtils {
 }
