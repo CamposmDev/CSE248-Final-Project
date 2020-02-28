@@ -70,8 +70,8 @@ public class DBLoader extends AsyncTask<Void, Void, Void> {
             for (int j = 0; j < resultsArray.size(); j++) {
                 emitCollege(resultsArray.get(j));
             }
-            Sysout.println("Finished downloading college data");
         }
+        Sysout.println("Finished downloading college data");
     }
 
     public static void emitCollege(JsonNode result) {
